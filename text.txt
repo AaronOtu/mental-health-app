@@ -1,0 +1,2 @@
+  "expo-dev-client":"~5.0.20",
+    "expo-dev-launcher":"^5.1.11",
