@@ -3,13 +3,13 @@ import { Redirect, Slot } from "expo-router";
 import React from "react";
 
 const Layout = () => {
-  const {authState} = useAuth();
- 
+  const { authState } = useAuth();
+
   if (!authState?.authenticated) {
-    return <Redirect href="./login" />;
+    return <Redirect href="/login" />;
   }
 
   return <Slot />;
 };
 
-export default  Layout;
+export default Layout;

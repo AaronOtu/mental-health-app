@@ -13,15 +13,16 @@ import { AuthProvider, useAuth } from "@/providers/AuthProvider";
 
 const InitialLayout = () => {
   // TODO: Handle auth provider
-  const {initialized} = useAuth();
+  const { initialized } = useAuth();
 
-  if(!initialized){
-    return  <View className="flex-1 items-center justify-center bg-white">
-      <ActivityIndicator size="large" color="#0000ff" />
-    </View>
-
+  if (!initialized) {
+    return (
+      <View className="items-center justify-center flex-1 bg-white">
+        <ActivityIndicator size="large" color="#0000ff" />
+      </View>
+    );
   }
-  
+
   return <Slot />;
 };
 export default function RootLayout() {

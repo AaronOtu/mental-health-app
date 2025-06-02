@@ -1,6 +1,4 @@
 {
-    "cSpell.words": [
-        "mbdcdk",
-        "mcgmk"
-    ]
+  "cSpell.words": ["mbdcdk", "mcgmk"],
+  "java.compile.nullAnalysis.mode": "automatic"
 }

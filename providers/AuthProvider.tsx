@@ -107,7 +107,7 @@ export const AuthProvider = ({ children }: any) => {
   /**
    * Updates the authentication state with data from a token response
    */
-  const updateAuthStateFromToken = (object: any) => {
+  /*const updateAuthStateFromToken = (object: any) => {
     setAuthState({
       token: object.token,
       jwt: object.jwt,
@@ -117,6 +117,30 @@ export const AuthProvider = ({ children }: any) => {
       email: object.user.email,
     });
   };
+  */
+ const updateAuthStateFromToken = (object: any) => {
+  if (!object.user) {
+    console.warn("No user info in response:", object);
+    setAuthState({
+      token: object.token ?? null,
+      jwt: object.jwt ?? null,
+      authenticated: true,
+      user_id: null,
+      role: null,
+      email: null,
+    });
+    return;
+  }
+
+  setAuthState({
+    token: object.token,
+    jwt: object.jwt,
+    authenticated: true,
+    user_id: object.user.id,
+    role: object.user.role,
+    email: object.user.email,
+  });
+};
 
   /**
    * Authenticates a user with email and password
